@@ -13,10 +13,9 @@ return [
     'language' => 'en',
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'homeUrl' => '/',
     'components' => [
         'request' => [
-            'baseUrl' => '/',
+            'baseUrl' => '',
             'enableCsrfValidation' => true,
             'csrfParam' => '_csrf-backend',
         ],
@@ -24,10 +23,6 @@ return [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
-        ],
-        'session' => [
-            // this is the name of the session cookie used for login on the backend
-            'name' => 'advanced-backend',
         ],
         'urlManager' => [
             'enablePrettyUrl' => true,

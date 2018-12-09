@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="col-12">
         <h1><?= Html::encode($this->title) ?></h1>
         <p>
-            <?= Html::a(Yii::t('backend', 'Create Setting'), ['/testjob.test/settings/index/create'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a(Yii::t('backend', 'Create Setting'), ['create'], ['class' => 'btn btn-success']) ?>
         </p>
     </div>
 
@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'template' => '{edit}',
                         'buttons' => [
                             'edit' => function ($url, $model) {
-                                return "<a href='" . Url::to(['/testjob.test/settings/index/update', 'id' => $model->id]) . "' title='Edit' class='glyphicon glyphicon-edit btn-lg'></a>";
+                                return "<a href='" . Url::to(['update', 'id' => $model->id]) . "' title='Edit' class='glyphicon glyphicon-edit btn-lg'></a>";
                             },
                         ],
                     ],
@@ -67,7 +67,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'editableOptions' => function($model, $key, $index) {
                             return [
                                 'formOptions' => [
-                                    'action' => Url::toRoute(['/testjob.test/settings/index/ajax-pname']),
+                                    'action' => Url::toRoute(['ajax-pname']),
                                 ],
                                 'beforeInput' => function ($form, $widget) use ($model, $index) {
                                     echo $form->field($model, "id")->hiddenInput()->label(false);
@@ -99,7 +99,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'editableOptions' => function($model, $key, $index) {
                             return [
                                 'formOptions' => [
-                                    'action' => Url::to(['/testjob.test/settings/index/ajax-pvalue'], true),
+                                    'action' => Url::to(['ajax-pvalue'], true),
                                 ],
                                 'beforeInput' => function ($form, $widget) use ($model, $index) {
                                     echo $form->field($model, "id")->hiddenInput()->label(false);
@@ -124,11 +124,11 @@ $this->params['breadcrumbs'][] = $this->title;
                         'template' => '{edit}{delete}',
                         'buttons' => [
                             'delete' => function ($url, $model) {
-                                return "<a href='" . Url::toRoute(['/testjob.test/settings/index/delete', 'id' => $model->id]) . "' title='Paper and Site OFF' class='glyphicon glyphicon-remove btn-lg' data-confirm='Are you sure to delete this item?' data-method='post' data-pjax='1'></a>";
+                                return "<a href='" . Url::toRoute(['delete', 'id' => $model->id]) . "' title='Paper and Site OFF' class='glyphicon glyphicon-remove btn-lg' data-confirm='Are you sure to delete this item?' data-method='post' data-pjax='1'></a>";
                             },
                             'edit' => function ($url, $model) {
                                 //data-confirm='Are you sure to edit this item?'
-                                return "<a href='" . Url::toRoute(['/testjob.test/settings/index/update', 'id' => $model->id]) . "' title='Edit' class='glyphicon glyphicon-edit btn-lg'></a>";
+                                return "<a href='" . Url::toRoute(['update', 'id' => $model->id]) . "' title='Edit' class='glyphicon glyphicon-edit btn-lg'></a>";
                             },
                         ],
                     ]
