@@ -125,3 +125,6 @@ th a {
 .panel-view td a:hover {
     color: black;
 }
+.kv-grid-table .popover {
+    display: none;
+}
